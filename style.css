@@ -1,0 +1,343 @@
+:root {
+  --pitch-dark: #0d2a20;
+  --pitch-mid: #143d2f;
+  --pitch-line: #2a5744;
+  --chalk: #f3f1e6;
+  --chalk-dim: #b9c2b4;
+  --floodlight: #f2a93b;
+  --floodlight-dim: #caa465;
+  --home-tag: #e2593f;
+  --away-tag: #4c8ec2;
+  --draw-tag: #9aa08f;
+  --danger: #d96a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--pitch-dark);
+  color: var(--chalk);
+  font-family: 'Sarabun', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, .heading-font {
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+}
+
+/* ---------- Header / scoreboard ---------- */
+
+.matchhead {
+  background: linear-gradient(180deg, var(--pitch-mid) 0%, var(--pitch-dark) 100%);
+  border-bottom: 1px solid var(--pitch-line);
+  padding: 40px 24px 32px;
+}
+
+.matchhead__inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.matchhead__eyebrow {
+  color: var(--floodlight);
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.matchhead h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 4px;
+  color: var(--chalk);
+}
+
+.matchhead p {
+  color: var(--chalk-dim);
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+}
+
+.scoreboard {
+  text-align: center;
+  border: 1px solid var(--pitch-line);
+  padding: 10px 22px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.15);
+}
+
+.scoreboard__digit {
+  font-family: 'Kanit', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--floodlight);
+  line-height: 1;
+}
+
+.scoreboard__label {
+  font-size: 0.75rem;
+  color: var(--chalk-dim);
+  margin-top: 4px;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  padding: 20px 24px 0;
+}
+
+.tabs__btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--chalk-dim);
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  padding: 10px 4px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.tabs__btn.is-active {
+  color: var(--floodlight);
+  border-bottom-color: var(--floodlight);
+}
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.tab-panel { display: none; }
+.tab-panel.is-active { display: block; }
+
+/* ---------- Toolbar / forms ---------- */
+
+.panel-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.panel-toolbar label {
+  color: var(--chalk-dim);
+  font-size: 0.9rem;
+}
+
+input[type="date"],
+input[type="text"],
+textarea {
+  background: var(--pitch-mid);
+  border: 1px solid var(--pitch-line);
+  color: var(--chalk);
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+input[type="date"] { width: auto; }
+
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--chalk-dim);
+  font-size: 0.9rem;
+}
+
+.field-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.field-row .field { flex: 1; margin-bottom: 0; }
+
+.field-vs {
+  font-family: 'Kanit', sans-serif;
+  color: var(--floodlight);
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+.btn {
+  font-family: 'Kanit', sans-serif;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn--primary {
+  background: var(--floodlight);
+  color: var(--pitch-dark);
+  font-weight: 600;
+}
+
+.btn--primary:hover { background: var(--floodlight-dim); }
+
+.analyze-form { margin-bottom: 24px; }
+
+/* ---------- Status / errors ---------- */
+
+.status {
+  color: var(--chalk-dim);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  min-height: 1.2em;
+}
+
+.status.is-error { color: var(--danger); }
+
+/* ---------- Fixture list (matchday programme) ---------- */
+
+.fixture-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--pitch-line);
+}
+
+.fixture {
+  border-bottom: 1px solid var(--pitch-line);
+  padding: 16px 0;
+}
+
+.fixture__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.fixture__time {
+  font-family: 'Kanit', sans-serif;
+  color: var(--floodlight);
+  font-size: 0.95rem;
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.fixture__teams {
+  flex: 1;
+}
+
+.fixture__teams .comp {
+  font-size: 0.78rem;
+  color: var(--chalk-dim);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.badge-form {
+  color: var(--floodlight);
+}
+
+.fixture__teams .names {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.05rem;
+}
+
+.fixture__confidence {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.fixture__confidence .num {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.3rem;
+  color: var(--floodlight);
+}
+
+.fixture__confidence .lbl {
+  font-size: 0.7rem;
+  color: var(--chalk-dim);
+}
+
+.fixture__analysis {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--pitch-mid);
+  border-radius: 4px;
+  border-left: 3px solid var(--floodlight);
+}
+
+.fixture__analysis.is-open { display: block; }
+
+.analysis-score {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.analysis-outcome {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.outcome-home { background: var(--home-tag); color: #fff; }
+.outcome-away { background: var(--away-tag); color: #fff; }
+.outcome-draw { background: var(--draw-tag); color: #1a1a1a; }
+
+.analysis-points {
+  margin: 10px 0;
+  padding-right: 4px;
+}
+
+.analysis-points li { margin-bottom: 4px; font-size: 0.92rem; }
+
+.analysis-summary {
+  font-size: 0.92rem;
+  color: var(--chalk);
+  margin: 8px 0;
+}
+
+.analysis-risk {
+  font-size: 0.82rem;
+  color: var(--chalk-dim);
+  border-top: 1px dashed var(--pitch-line);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px;
+  color: var(--chalk-dim);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--pitch-line);
+}
+
+@media (max-width: 560px) {
+  .matchhead__inner { flex-direction: column; align-items: flex-start; }
+  .field-row { flex-direction: column; align-items: stretch; }
+  .field-vs { padding: 0; text-align: center; }
+}

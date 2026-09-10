@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>วิเคราะห์บอล — Matchday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="matchhead">
+  <div class="matchhead__inner">
+    <div class="matchhead__title">
+      <span class="matchhead__eyebrow" id="today-date">—</span>
+      <h1>วิเคราะห์บอลประจำวัน</h1>
+      <p>คัดคู่เด่น อ่านฟอร์ม แล้วให้ AI ช่วยประเมินก่อนตัดสินใจ</p>
+    </div>
+    <div class="scoreboard">
+      <div class="scoreboard__digit" id="fixture-count">--</div>
+      <div class="scoreboard__label">คู่บอลวันนี้</div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tabs__btn is-active" data-tab="daily">บอลเด็ดวันนี้</button>
+  <button class="tabs__btn" data-tab="analyzer">วิเคราะห์คู่บอลเอง</button>
+</nav>
+
+<main class="wrap">
+
+  <!-- DAILY PICKS TAB -->
+  <section id="tab-daily" class="tab-panel is-active">
+    <div class="panel-toolbar">
+      <label for="date-input">วันที่</label>
+      <input type="date" id="date-input" />
+      <button id="load-picks-btn" class="btn btn--primary">โหลดคู่บอล</button>
+    </div>
+
+    <div id="daily-status" class="status"></div>
+    <ol id="fixture-list" class="fixture-list"></ol>
+  </section>
+
+  <!-- MANUAL ANALYZER TAB -->
+  <section id="tab-analyzer" class="tab-panel">
+    <form id="analyze-form" class="analyze-form">
+      <div class="field">
+        <label for="competition">รายการแข่งขัน</label>
+        <input type="text" id="competition" placeholder="เช่น พรีเมียร์ลีก" />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="homeTeam">ทีมเหย้า</label>
+          <input type="text" id="homeTeam" placeholder="เช่น อาร์เซนอล" required />
+        </div>
+        <div class="field-vs">VS</div>
+        <div class="field">
+          <label for="awayTeam">ทีมเยือน</label>
+          <input type="text" id="awayTeam" placeholder="เช่น เชลซี" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="extra">ข้อมูลเพิ่มเติม (ไม่บังคับ)</label>
+        <textarea id="extra" rows="2" placeholder="เช่น ผู้เล่นตัวหลักบาดเจ็บ, ฟอร์ม 5 นัดล่าสุด"></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary">วิเคราะห์คู่นี้</button>
+    </form>
+
+    <div id="analyzer-status" class="status"></div>
+    <div id="analyzer-result"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>ผลวิเคราะห์จาก AI เป็นเพียงแนวทางประกอบการตัดสินใจ ไม่ใช่การการันตีผลการแข่งขัน ฟุตบอลมีความไม่แน่นอนสูงเสมอ โปรดใช้วิจารณญาณและเล่นอย่างมีสติ</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
